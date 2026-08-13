@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt 
 
 def dft(f, xs, freqs):
     dx = xs[1] - xs[0]
@@ -32,3 +31,4 @@ def nyquist_rate(dx, lx, thresh=0.99):
     frac = np.cumsum(power[order]) / power.sum()
     B = np.abs(freqs)[order][np.searchsorted(frac, thresh)]
     return 2 * B
+
