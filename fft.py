@@ -58,7 +58,7 @@ def power_spectrum_compression(img_gray, dx, dy):
     for col, thresh in enumerate(thresh_list):
         mask, image_reconstruction = compress_img(img_gray, dx, dy, thresh=thresh)
         axes[col].imshow(image_reconstruction, cmap='gray', vmin=vmin, vmax=vmax)
-        axes[col].set_title(f"{thresh:.4g} — {mask.sum()/mask.size:.1%} of coeffs")
+        axes[col].set_title(f"{thresh:.5g} — {mask.sum()/mask.size:.1%} of coeffs")
         axes[col].axis('off')
 
     plt.show()
@@ -90,4 +90,4 @@ step = 1
 dx = 1
 dy = 1
 
-phase_only_ifft(gray[::step, ::step], dx, dy)
+power_spectrum_compression(gray, dx, dy)
